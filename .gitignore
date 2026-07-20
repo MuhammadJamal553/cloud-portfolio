@@ -1,1 +1,13 @@
+text# Ignore local AWS configuration and credentials
+.aws/
+credentials
+config
 
+# Ignore local environment variables and secrets
+.env
+*.pem
+*.tfvars
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
