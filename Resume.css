@@ -1,0 +1,523 @@
+@charset "UTF-8";
+
+/* Google Font Integration */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================
+   VARIABLES (Modern Premium Slate Theme)
+========================= */
+:root {
+    /* Background Elements */
+    --darkest-blue: #0f172a;
+    /* Deep Slate Midnight */
+    --sidebar-bg: #1e293b;
+    /* Polished Charcoal */
+    --main-content-bg: #0f172a;
+    /* Main Content Background */
+
+    /* Font Color Grades */
+    --white: #f8fafc;
+    /* Crisp Off-White Base */
+    --text-muted: #94a3b8;
+    /* Muted Slate Gray Text */
+    --black: #0f172a;
+    /* High Contrast Highlights */
+
+    /* Accent & Action Indicators */
+    --orange: #38bdf8;
+    /* Cyber Sky Blue / High-End Tech Blue */
+    --yellow: #cce90e;
+    /* Mid-Tone Oceanic Accent Blue */
+    --skyblue: #00f2ff;
+    /* Pure Neon Tech Cyan */
+    --green: #10b981;
+    /* Refined Emerald Success Green */
+    --card-bg: #1e293b;
+    /* Isolated Project Card Container Element */
+}
+
+/* =========================
+   GLOBAL OVERLAYS
+========================= */
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--darkest-blue);
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: var(--orange);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--skyblue);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h3 {
+    color: var(--white);
+    margin: 10px 0;
+    font-size: 1.35em;
+    font-weight: 600;
+}
+
+/* =========================
+   BASE FRAMEWORK LAYOUT
+========================= */
+.resume {
+    width: 1000px;
+    background: var(--main-content-bg);
+    color: var(--white);
+    margin: 40px auto;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+/* =========================
+   LEFT BASE PANEL (30%)
+========================= */
+.resume .base {
+    width: 30%;
+    padding: 40px 20px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid #334155;
+}
+
+.resume .base h1,
+.resume .base h2,
+.resume .base h3,
+.resume .base p,
+.resume .base span,
+.resume .base a {
+    color: var(--white);
+}
+
+.resume .base .contact div {
+    margin: 14px 0;
+    font-size: 0.95em;
+    color: var(--text-muted);
+}
+
+.resume .base .contact i {
+    color: var(--orange);
+    margin-right: 10px;
+    width: 16px;
+    text-align: center;
+}
+
+.resume .base .follow .box a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: var(--text-muted);
+}
+
+.resume .base .follow .box a:hover {
+    color: var(--orange);
+}
+
+/* =========================
+   PROFILE WRAPPER OVERRIDE
+========================= */
+.resume .base .profile {
+    background: linear-gradient(135deg, var(--sidebar-bg), #0f172a);
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--orange);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.resume .base .profile .photo img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid var(--orange);
+    object-fit: cover;
+}
+
+.resume .base .profile .name {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 12px 0 3px 0;
+    letter-spacing: 0.5px;
+}
+
+.resume .base .profile .job {
+    font-size: 1em;
+    color: var(--orange);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   RIGHT DYNAMIC SECTOR (70%)
+========================= */
+.resume .func {
+    width: 70%;
+    padding: 40px;
+    background: var(--main-content-bg);
+}
+
+.resume .func .work,
+.resume .func .edu,
+.resume .func .skills-prog,
+.resume .func .interests,
+.resume .func .projects {
+    margin-bottom: 35px;
+}
+
+.resume .func h3 {
+    border-bottom: 2px solid #334155;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: var(--orange);
+}
+
+.resume .func ul li {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+.resume .func ul li strong {
+    color: var(--white);
+}
+
+.resume .func small {
+    display: block;
+    color: var(--orange);
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+/* =========================
+   PROGRAMMING PROGRESS METRICS
+========================= */
+.resume .func .skills-prog ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.resume .func .skills-prog span {
+    width: 130px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.resume .func .skills-prog .skills-bar {
+    background: #334155;
+    height: 8px;
+    width: 100%;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.resume .func .skills-prog .skills-bar .bar {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(90deg, var(--yellow), var(--orange));
+    border-radius: 4px;
+}
+
+/* =========================
+   INTEREST MODULE
+========================= */
+.resume .func .interests-items {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.resume .func .interests-items div {
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.resume .func .interests-items i {
+    font-size: 26px;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* =========================
+   PROJECT DISCOVERY DISPLAY CARDS
+========================= */
+.resume .func .projects {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding: 25px;
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    box-sizing: border-box;
+    clear: both;
+}
+
+.resume .func .projects h3 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0 0 20px 0;
+    color: var(--white);
+}
+
+.resume .func .projects h3 i {
+    color: var(--orange);
+    margin-right: 10px;
+}
+
+.resume .func .projects .project-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #334155;
+}
+
+.resume .func .projects .project-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.resume .func .projects h4 {
+    color: var(--orange);
+    margin: 0 0 8px 0;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resume .func .projects p {
+    color: var(--text-muted);
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.resume .func .projects ul {
+    padding-left: 18px;
+    list-style-type: circle;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.resume .func .projects ul li {
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+.resume .func .projects strong {
+    color: var(--white);
+}
+
+.resume .func .projects .project-button {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--black);
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.85em;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: transform 0.2s ease, background 0.2s ease;
+    text-transform: uppercase;
+}
+
+.resume .func .projects .project-button i {
+    margin-right: 6px;
+}
+
+.resume .func .projects .project-button:hover {
+    background: var(--skyblue);
+    transform: translateY(-1px);
+    opacity: 1;
+}
+
+/* =========================
+   LIVE VISITOR TRACKING DISPLAY FOOTER
+========================= */
+.visitor-counter {
+    text-align: center;
+    margin: 40px 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.visitor-counter h3 {
+    color: var(--text-muted);
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.visitor-counter h3 strong {
+    color: var(--orange);
+    font-size: 1.25em;
+}
+
+
+/* ==========================================================================
+   5. PROFESSIONAL AUTOMATED PRINT/PDF DESIGN MEDIA QUERY
+   ========================================================================== */
+@media print {
+
+    html,
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12px !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .resume .base {
+        width: 35% !important;
+        padding: 30px 20px !important;
+        background-color: #f1f5f9 !important;
+        /* Forces light gray sidebar background */
+        background: #f1f5f9 !important;
+        border-right: 2px solid #cbd5e1 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .resume .base h1,
+    .resume .base h2,
+    .resume .base h3,
+    .resume .base p,
+    .resume .base span,
+    .resume .base a,
+    .resume .base .contact div {
+        color: #0f172a !important;
+    }
+
+    /* Fixes the profile badge circle text cutoff permanently */
+    .resume .base .profile {
+        background: #ffffff !important;
+        border: 2px solid #2563eb !important;
+        width: 190px !important;
+        height: auto !important;
+        min-height: 190px !important;
+        padding: 15px 10px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .resume .base .profile .photo img {
+        width: 90px !important;
+        height: 90px !important;
+        border-radius: 50% !important;
+        border: 2px solid #2563eb !important;
+        object-fit: cover !important;
+    }
+
+    .resume .base .profile .name {
+        font-size: 1.2em !important;
+        margin-top: 8px !important;
+    }
+
+    .resume .base .profile .job {
+        font-size: 0.95em !important;
+        color: #2563eb !important;
+        margin-top: 4px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .resume .func {
+        width: 65% !important;
+        padding: 30px !important;
+        background: #ffffff !important;
+    }
+
+    .resume .func h3 {
+        color: #1e3a8a !important;
+        border-bottom: 2px solid #cbd5e1 !important;
+        padding-bottom: 4px !important;
+    }
+
+    .resume .func .skills-prog span {
+        width: 140px !important;
+        color: #0f172a !important;
+    }
+
+    .resume .func .skills-prog .skills-bar {
+        background: #e2e8f0 !important;
+        height: 8px !important;
+        border-radius: 4px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .resume .func .skills-prog .skills-bar .bar {
+        background: #2563eb !important;
+        border-radius: 4px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .resume .func .projects {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        padding: 20px !important;
+        border-radius: 6px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hides web buttons and visit counts from showing on the PDF page */
+    .project-button,
+    .visitor-counter,
+    #visitor-counter,
+    .resume .func .projects .project-button {
+        display: none !important;
+    }
+}

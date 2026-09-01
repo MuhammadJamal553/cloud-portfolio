@@ -1,0 +1,44 @@
+name : Phase 4 - Cloud Resume CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main # Automatically Run Whenever you push code changes to main branches
+
+jobs:
+  Deploy:
+    name : sync to S3 and flush cloudfront cache
+    runs-on: ubuntu-latest
+    
+
+    steps:
+    
+    # Step 1 Download your code onto the github runner
+      - name: chektout respository code
+        uses: actions/checkout@v4
+    # Step 2 Authenticate Securely with AWS using your stored secrets
+      - name: Configure Aws Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id : ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+    # Step 3 Synchronize files in S3 Bucket and delete files
+      - name: Sync Static files to S3
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete --exclude ".git*" --exclude "README.md"
+      # Note : The "_" assume the index.html file sits directly in the root folder.
+
+          # Step 4 Force CloudFront to Clear it edge cache so change go live instantly
+      - name: Invalidate Cloudfront CDN Cache 
+        run: |
+          aws cloudfront create-invalidation --distribution-id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" --paths "/*"  || true
+      # Step 5: Package and Deploy your backend Lambda Function
+            # Step 5: Package and Deploy your backend Lambda Function
+      - name: Deploy Lambda Function Code
+        run: |
+          # Fix applied: We zip the file from its relative path without dropping the folder structure wrapper
+          zip -j function.zip backend/lambda_function.py
+          
+          # Push the clean root-mapped zip file live to your AWS Lambda configuration
+          aws lambda update-function-code --function-name "cloud-resume-backend" --zip-file fileb://function.zip
